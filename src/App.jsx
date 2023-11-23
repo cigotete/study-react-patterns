@@ -20,7 +20,9 @@ export function App() {
         sourceName={ "book" }
         ItemComponent={ LargeBookListItem }
       />
+
       <hr />
+
       <RegularList
         items={ authors }
         sourceName={ "author" }
