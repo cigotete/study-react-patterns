@@ -11,7 +11,10 @@ const RightSideComp = ({title}) => {
 
 export function App() {
   return (
-    <SplitScreen Left={ LeftSideComp } Right={ RightSideComp } />
+    <SplitScreen leftWidth={1} rightWidth={3}>
+      <LeftSideComp title={'Right'}/>
+      <RightSideComp title={'Left'}/>
+    </SplitScreen>
   );
 }
 

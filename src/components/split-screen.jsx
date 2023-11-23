@@ -6,23 +6,23 @@ const Container = styled.div`
 `;
 
 const Panel = styled.div`
-  flex: 1;
+  flex: ${(p) => p.flex};
 `;
 
-export const SplitScreen = ({ Left, Right }) => {
+
+
+export const SplitScreen = ({ children, leftWidth = 1, rightWidth = 1 }) => {
+  const [left, right] = children;
   return (
     <Container>
-      <Panel>
-        <Left title="Left" />
-      </Panel>
-      <Panel>
-        <Right title="Right" />
-      </Panel>
+      <Panel flex={leftWidth}>{left}</Panel>
+      <Panel flex={rightWidth}>{right}</Panel>
     </Container>
   );
 };
 
 SplitScreen.propTypes = {
-  Left: PropTypes.elementType.isRequired,
-  Right: PropTypes.elementType.isRequired,
+  children: PropTypes.array.isRequired,
+  leftWidth: PropTypes.number,
+  rightWidth: PropTypes.number,
 };
