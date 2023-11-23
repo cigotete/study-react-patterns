@@ -4,6 +4,7 @@ export const RegularList = ({ items, sourceName, ItemComponent }) => {
   return (
     <>
       { items.map((item, i) => (
+        // <ItemComponent key={i} author={ item } />
         <ItemComponent key={i} {...{ [ sourceName ]: item }} />
       ))}
     </>
