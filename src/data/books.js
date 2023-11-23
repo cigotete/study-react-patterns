@@ -1,20 +1,32 @@
 export const books = [
   {
-    name: "To Kill a Mockingbird",
+    title: "To Kill a Mockingbird",
     pages: 281,
-    title: "Harper Lee",
+    name: "Harper Lee",
     price: 12.99,
   },
   {
-    name: "The Catcher in the Rye",
+    title: "The Catcher in the Rye",
     pages: 224,
-    title: "J.D. Salinger",
+    name: "J.D. Salinger",
     price: 9.99,
   },
   {
-    name: "The Little Prince",
+    title: "The Little Prince",
     pages: 85,
-    title: "Antoine de Saint-Exupéry",
+    name: "Antoine de Saint-Exupéry",
     price: 7.99,
+  },
+  {
+    title: "Fingersmith",
+    pages: 500,
+    name: "Sarah Waters",
+    price: 19.99,
+  },
+  {
+    title: "Norwegian Wood",
+    pages: 400,
+    name: "Haruki Murakami",
+    price: 12.99,
   },
 ];
