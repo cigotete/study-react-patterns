@@ -1,26 +1,22 @@
-import { SplitScreen } from "./components/split-screen";
-import PropTypes from 'prop-types';
-
-const LeftSideComp = ({title}) => {
-  return <h2 style={{ backgroundColor: "crimson" }}>{title}</h2>;
-};
-
-const RightSideComp = ({title}) => {
-  return <h2 style={{ backgroundColor: "burlywood" }}>{title}</h2>;
-};
+import { LargeAuthorListItem } from "./components/authors/LargeListItems";
+import { SmallAuthorListItem } from "./components/authors/SmallListItems";
+import { RegularList } from "./components/lists/Regular";
+import { authors } from "./data/authors";
 
 export function App() {
   return (
-    <SplitScreen leftWidth={1} rightWidth={3}>
-      <LeftSideComp title={'Right'}/>
-      <RightSideComp title={'Left'}/>
-    </SplitScreen>
+    <>
+      <RegularList
+        items={ authors }
+        sourceName={ "author" }
+        ItemComponent={ SmallAuthorListItem }
+      />
+      -----------------------------
+      <RegularList
+        items={ authors }
+        sourceName={ "author" }
+        ItemComponent={ LargeAuthorListItem }
+      />
+    </>
   );
 }
-
-LeftSideComp.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-RightSideComp.propTypes = {
-  title: PropTypes.string.isRequired,
-};
