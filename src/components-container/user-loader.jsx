@@ -9,17 +9,14 @@ export const UserLoader = ({ userId, children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/users/${userId}`);
+    axios.get(`/users/${userId}`)
+      .then(response => {
         setUser(response.data);
         console.log('response.data', response.data);
-      } catch (error) {
+      })
+      .catch(error => {
         console.log('error', error);
-      }
-    };
-
-    fetchData();
+      });
   }, [userId]);
 
   return (

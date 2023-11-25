@@ -9,15 +9,14 @@ export const CurrentUserLoader = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    try {
-      (async () => {
-        const response = await axios.get("/current-user");
+    axios.get("/current-user")
+      .then(response => {
         setUser(response.data);
         console.log('response.data', response.data);
-      })();
-    } catch (error) {
-      console.log('error', error);
-    }
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
   }, []);
 
   return (
