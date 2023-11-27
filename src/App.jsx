@@ -24,6 +24,12 @@ export function App() {
       >
         <UserInfo />
       </DataSource>
+      <DataSource
+        getData={() => fetchData("/books/1")}
+        resourceName={"book"}
+      >
+        <BookInfo />
+      </DataSource>
       <hr />
       <h4>
         Loading parametrizing the resource url and resource name/type.
