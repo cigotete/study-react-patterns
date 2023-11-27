@@ -24,6 +24,10 @@ export function App() {
       >
         <UserInfo />
       </DataSource>
+      <hr />
+      <h4>
+        Loading parametrizing the resource url and resource name/type.
+      </h4>
       <ResourceLoader
         ResourceUrl={"/users/3"}
         ResourceName={"user"}
@@ -38,10 +42,16 @@ export function App() {
         <BookInfo />
       </ResourceLoader>
       <hr />
+      <h4>
+        Loading parametrizing the user id
+      </h4>
       <UserLoader userId={"2"}>
         <UserInfo />
       </UserLoader>
       <hr />
+      <h4>
+        Loading with no parametrization.
+      </h4>
       <CurrentUserLoader>
         <UserInfo />
       </CurrentUserLoader>
