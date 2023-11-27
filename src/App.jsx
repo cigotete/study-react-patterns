@@ -37,7 +37,7 @@ export function App() {
       <hr />
       <ResourceLoader
         ResourceUrl={"/books/1"}
-        ResourceName={"books"}
+        ResourceName={"book"}
       >
         <BookInfo />
       </ResourceLoader>
