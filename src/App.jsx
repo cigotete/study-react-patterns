@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types"; 
 import { CurrentUserLoader } from "./components-container/current-user-loader";
 import { UserLoader } from "./components-container/user-loader";
 import { BookInfo } from "./components-container/book-info";
@@ -12,9 +13,20 @@ const fetchData = async (url) => {
   return response.data;
 };
 
+const getDataFromLocalStorage = (key) => () => {
+  return localStorage.getItem(key);
+};
+
+const Message = ({ msg }) => <h1>{msg}</h1>;
+
 export function App() {
   return (
     <>
+      <h4>Displaying a message using data from localstorage.</h4>
+      <DataSource getData={() => getDataFromLocalStorage("test")} resourceName={"msg"}>
+        <Message />
+      </DataSource>
+      <hr />
       <h4>Using Render as props (cloneElement replacement)</h4>
       <DataSourceWithRenderProps
         getData={
@@ -75,3 +87,7 @@ export function App() {
     </>
   );
 }
+
+Message.propTypes = {
+  msg: PropTypes.string,
+};
