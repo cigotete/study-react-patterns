@@ -5,6 +5,7 @@ import { BookInfo } from "./components-container/book-info";
 import { UserInfo } from "./components-container/user-info";
 import { ResourceLoader } from "./components-container/resource-loader";
 import { DataSource } from "./components-container/data-source";
+import { DataSourceWithRenderProps } from "./components-container/data-source-with-render-props";
 
 const fetchData = async (url) => {
   const response = await axios.get(url);
@@ -14,6 +15,16 @@ const fetchData = async (url) => {
 export function App() {
   return (
     <>
+      <h4>Using Render as props (cloneElement replacement)</h4>
+      <DataSourceWithRenderProps
+        getData={
+          () => fetchData("/users/1")
+        }
+        render={
+          (resource) => <UserInfo user={resource} />
+        }
+      >
+      </DataSourceWithRenderProps>
       <hr />
       <h4>
         Loading with fetch function passed as props.
