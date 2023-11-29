@@ -1,12 +1,74 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
+
 import { UncontrolledForm } from "./controlled-uncontrolled/uncontrolled-form";
 import { ControlledForm } from "./controlled-uncontrolled/controlled-form";
 import { ControlledModal } from "./controlled-uncontrolled/controlled-modal";
+import { UncontrolledFlow } from "./controlled-uncontrolled/uncontrolled-flow";
+
+const StepOne = ({ next }) => {
+  return (
+    <>
+      <h1>Step #1</h1>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+StepOne.propTypes = {
+  next: PropTypes.func,
+};
+
+const StepTwo = ({ next }) => {
+  return (
+    <>
+      <h1>Step #2</h1>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+StepTwo.propTypes = {
+  next: PropTypes.func,
+};
+
+const StepThree = ({ next }) => {
+  return (
+    <>
+      <h1>Step #3</h1>
+      <button onClick={next}>Next</button>
+    </>
+  );
+};
+StepThree.propTypes = {
+  next: PropTypes.func,
+};
+
+const DoneForm = () => {
+  return (
+    <>
+      <h1>Final step!</h1>
+    </>
+  );
+};
 
 export const AppControlledUncontrolledComponents = () => {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <>
+
+      <h1>Controlled and Uncontrolled Components</h1>
+
+      <hr />
+      <h2>Uncontrolled Flow</h2>
+      <UncontrolledFlow>
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+        <DoneForm />
+      </UncontrolledFlow>
+
+      <hr />
+
       <button onClick={() => setShowModal(!showModal)}>
         {showModal ? "Hide Modal" : "Show Modal"}
       </button>
