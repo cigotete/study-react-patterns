@@ -4,11 +4,13 @@ import ReactDOM from 'react-dom/client'
 /* import {
   AppControlledUncontrolledComponents as AppConUncontrolled
 } from './App-controlled-uncontrolled-components.jsx' */
-import { AppHoc } from './AppHoc.jsx'
+// import { AppHoc } from './AppHoc.jsx'
+import { AppCustomHook } from './AppCustomHooks'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppHoc />
+    <AppCustomHook />
+    {/* <AppHoc /> */}
     {/* <AppConUncontrolled /> */}
     {/* <App /> */}
   </React.StrictMode>,
