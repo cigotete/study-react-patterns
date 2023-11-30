@@ -1,31 +1,32 @@
-import { includeUserUpdatingTable } from "./include-user-updating-data";
+import { includeResourceUpdatingData } from "./include-resource-updating-data";
 
-export const UserInfoForm = includeUserUpdatingTable(
-  ({ updatableUser, changeHandler, userPostHandler, resetUserHandler }) => {
-    const { name, age } = updatableUser || {};
+export const UserInfoForm = includeResourceUpdatingData(
+  ({ user, onChangeUser, onSaveUser, onResetUser }) => {
+    const { name, age } = user || {};
 
-    return updatableUser ? (
+    return user ? (
       <>
         <label>
           Name:
           <input
             value={name}
-            onChange={(e) => changeHandler({ name: e.target.value })}
+            onChange={(e) => onChangeUser({ name: e.target.value })}
           />
         </label>
         <label>
           Age:
           <input
             value={age}
-            onChange={(e) => changeHandler({ age: Number(e.target.value) })}
+            onChange={(e) => onChangeUser({ age: Number(e.target.value) })}
           />
         </label>
-        <button onClick={resetUserHandler}>Reset</button>
-        <button onClick={userPostHandler}>Save</button>
+        <button onClick={onResetUser}>Reset</button>
+        <button onClick={onSaveUser}>Save</button>
       </>
     ) : (
       <h3>Loading...</h3>
     );
   },
-  "3"
+  "/users/2",
+  "user"
 );
