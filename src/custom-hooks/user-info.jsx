@@ -1,7 +1,8 @@
-import { useCurrentUser } from "./useCurrentUser.hook";
+import PropTypes from 'prop-types';
+import { useUser } from "./useUser.hook";
 
-export const UserInfo = () => {
-  const user = useCurrentUser();
+export const UserInfo = ({userId}) => {
+  const user = useUser(userId);
   const { name, age, country, books } = user || {};
   return user ? (
     <>
@@ -18,4 +19,8 @@ export const UserInfo = () => {
   ) : (
     <h1>Loading...</h1>
   );
+};
+
+UserInfo.propTypes = {
+  userId: PropTypes.string.isRequired,
 };

@@ -4,7 +4,7 @@ export const AppCustomHook = () => {
   return (
     <>
       <h1>Custom Hooks</h1>
-      <UserInfo />
+      <UserInfo userId={'2'} />
     </>
   );
 }
