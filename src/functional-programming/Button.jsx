@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { partial } from './partial.jsx';
 
 // eslint-disable-next-line no-unused-vars
 export const Button = ({ size, color, text, ...props }) => {
@@ -13,16 +14,16 @@ export const Button = ({ size, color, text, ...props }) => {
     </button>
   );
 };
+
 Button.propTypes = {
   size: PropTypes.string,
   color: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 
-export const SmallButton = (props) => {
-  return <Button {...props} size={"small"} />;
-};
+export const SmallButton = partial(Button, { size: "small" });
 
-export const SmallRedButton = (props) => {
-  return <SmallButton {...props} color={"crimson"} />;
-};
+export const LargeRedButton = partial(Button, {
+  size: "large",
+  color: "crimson",
+});
