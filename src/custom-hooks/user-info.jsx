@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useUser } from "./useUser.hook";
+import { useResourceGet } from "./useResourceGet.hook";
 
-export const UserInfo = ({userId}) => {
-  const user = useUser(userId);
+export const UserInfo = ({resourceUrl, userId}) => {
+  const user = useResourceGet(resourceUrl, userId);
   const { name, age, country, books } = user || {};
   return user ? (
     <>
@@ -22,5 +22,6 @@ export const UserInfo = ({userId}) => {
 };
 
 UserInfo.propTypes = {
+  resourceUrl: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
 };
